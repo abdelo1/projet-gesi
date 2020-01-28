@@ -26,15 +26,26 @@ $(document).ready(function(){
     setInterval(function() {
         now=new Date().getTime()
         timeleft=countDownDate-now
-         days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-         hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-         minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-         seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-
-         $("#jours").text(days)
-         $("#heures").text(hours)
-         $("#minutes").text(minutes)
-         $("#secondes").text(seconds)
+        days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        if(days<10)
+            $("#jours").text("0"+days) 
+        else
+            $("#jours").text(days)
+        if(hours<10)
+            $("#heures").text("0"+hours) 
+        else
+            $("#heures").text(hours)
+        if(minutes<10)
+            $("#minutes").text("0"+minutes) 
+        else   
+            $("#minutes").text(minutes)
+        if(seconds<10)
+            $("#secondes").text("0"+seconds) 
+        else   
+            $("#secondes").text(seconds)
 
          if(timeleft<0)
            {
@@ -132,8 +143,15 @@ $(document).ready(function(){
     }
     setInterval(advance,5000)
    superHead=$(".super-head")
+   dm=$('.derniereminute')
+   carte=$('.carte')
     $(window).scroll(function(){
-    // if(superHead.position().top<$(this).scrollTop())
+     if(carte.position().top-300<=$(this).scrollTop())
+     {
+         carte.addClass("animated zoomIn")
+         carte.css("opacity","1")
+     }
+         
     
     })
     entrance.each(function(){

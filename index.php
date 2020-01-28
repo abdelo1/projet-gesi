@@ -105,7 +105,7 @@
             <img src="ressources/logoportugal.jpg" class="ml-2"  alt="">
           </div>
       </div>
-      <div class="last_match w-100 mt-5 ">
+      <div class="last_match w-100  mt-5 ">
          <p class="text-dark">Tout dernier match</p>
          <div class="tab-link w-100">
             <a class="link-tab link-tab_active" href="#">
@@ -118,7 +118,7 @@
          <div class="div_tab euro w-100 mt-4 d-flex flex-column">
             <div class="first card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                <div class="d-flex flex-md-row flex-column ">
+                <div class="d-flex col-md-4 flex-md-row flex-column col-12 justify-content-center align-items-center  ">
                    <img src="ressources/logo2.png"  alt="">
                    <span class="ml-2 mt-4">FRANCE</span>
                 </div>
@@ -127,7 +127,7 @@
                    <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                    <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                 </div>
-                <div class="d-flex flex-md-row flex-column ">
+                <div class="d-flex flex-md-row  justify-content-center col-12  align-items-center justify-content-md-end col-md-4 flex-column ">
                   <span class=" ml-2 mt-4">MOLDAVIE</span>
                   <img src="ressources/logomoldavie.jpg" class="ml-2 mt-3 mt-md-0"  alt="">
                 </div>   
@@ -135,7 +135,7 @@
             </div>
             <div class="second mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row col-md-4 flex-column  col-12 justify-content-center align-items-center ">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -144,7 +144,7 @@
                     <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                     <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                   </div>
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column justify-content-center col-12  align-items-center justify-content-md-end col-md-4 ">
                     <span class=" ml-2 mt-4">RUSSIE</span>
                     <img src="ressources/logorussie.png" class="ml-2 mt-3 mt-md-0"  alt="">
                   </div>   
@@ -153,7 +153,7 @@
               </div>
             <div class="last mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center  col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -162,7 +162,7 @@
                     <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                     <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                   </div>
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column  justify-content-center col-12  align-items-center justify-content-md-end col-md-4">
                     <span class=" ml-2 mt-4">CROATIE</span>
                     <img src="ressources/logocroatie.jpg" class="ml-2 mt-3 mt-md-0"  alt="">
                   </div>   
@@ -174,7 +174,7 @@
          <div class="div_tab coupe w-100 mt-4 d-flex flex-column">
             <div class="first  card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                <div class="d-flex flex-md-row flex-column">
+                <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center col-md-4">
                    <img src="ressources/logo2.png"  alt="">
                    <span class="ml-2 mt-4">FRANCE</span>
                 </div>
@@ -183,7 +183,7 @@
                    <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                    <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                 </div>
-                <div class="d-flex flex-md-row flex-column ">
+                <div class="d-flex flex-md-row flex-column justify-content-center col-12  align-items-center justify-content-md-end col-md-4 ">
                   <span class=" ml-2 mt-4">BENIN</span>
                   <img src="ressources/logobenin.png" class="ml-2"  alt="">
                 </div>  
@@ -191,7 +191,7 @@
             </div>
             <div class="second mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -200,7 +200,7 @@
                     <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                     <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                   </div>
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column justify-content-center col-12 align-items-center justify-content-md-end col-md-4">
                     <span class=" ml-2 mt-4">URUGUAY</span>
                     <img src="ressources/logouruguay.jpg" class="ml-2 mt-3 mt-md-0"  alt="">
                   </div>   
@@ -209,7 +209,7 @@
               </div>
             <div class="last mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column col-12 justify-content-center align-items-center  col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -218,7 +218,7 @@
                     <span style="font-size:17px" class="font-weight-bold text-white ml-2" >:</span>
                     <span style="font-size:17px" class="score-right font-weight-bold text-white ml-2"> 2</span>
                   </div>
-                  <div class="d-flex flex-md-row flex-column ">
+                  <div class="d-flex flex-md-row flex-column justify-content-center col-12  align-items-center justify-content-md-end col-md-4 ">
                     <span class=" ml-2 mt-4">EGYPTE</span>
                     <img src="ressources/logoegypte.png" class="ml-2 mt-3 mt-md-0"  alt="">
                   </div>   
@@ -228,6 +228,55 @@
             </div>
         </div>
 
+      </div>
+      <div style="margin-top:160px" class="last_news  w-100">
+        <h3 style="color:black" class="text-center derniereminute ">Dernieres minutes</h3>
+      <div style="margin-top:70px" class="row d-flex flex-md-row flex-column flex-wrap justify-content-around ">
+        <div class="carte card ">
+        <div class="carte-head">
+          <img src="ressources/photo_mannequin.jpg" alt="">
+          </div>
+          <div class="carte-body p-3 ">
+            <h5 style="color:gray" class="font-weight-bold ">Partenariat avec la marque sportive Nike . </h5>
+            <p style="line-height:30px;color:black" class=" mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+            </p>
+          </div>
+        </div>
+        <div class="carte card mt-3 mt-md-0">
+          <div class="carte-head">
+          <img src="ressources/shotvideo.png" alt="">
+          </div>
+          <div class="carte-body p-3 ">
+            <h5 style="color:gray" class="font-weight-bold ">Final de la coupe du monde  de football . </h5>
+            <p style="line-height:30px;color:black" class=" mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+            </p>
+          </div>
+        </div>
+        <div class="carte card mt-3 mt-md-0">
+        <div class="carte-head">
+          <img src="ressources/photofamille.jpg" alt="">
+          </div>
+          <div class="carte-body p-2 ">
+            <h5 style="color:gray" class="font-weight-bold">Photo de famille de la federation . </h5>
+            <p style="line-height:30px;color:black" class="  mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eos repellat autem illum nostrum sit distinctio!
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+      
       </div>
   </section>
 <?php

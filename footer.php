@@ -6,15 +6,16 @@
                 <h4 style="" class="text-white">Menu rapide</h4>
                 <div class="d-flex flex-row justify-content-around">
                     <div class="div_link_right d-flex flex-column align-items-start">
-                        <a class="footer-link" href="#">Accueil </a>
+                        <a class="footer-link" href="index.php">Accueil </a>
                         <a class="footer-link" href="#">Programme </a>
-                        <a class="footer-link" href="#">Equipe </a>
+                        <a class="footer-link" href="equipe.php">Equipe </a>
+                        <a class="footer-link" href="contact.php">Contact</a>
                     </div>
-                    <div class="div_link_left d-flex flex-column align-items-start">
-                        <a class="footer-link" href="#">Informations</a>
-                        <a class="footer-link" href="#">Contact</a>
+                    <!-- <div class="div_link_left d-flex flex-column align-items-start">
+                        <a class="footer-link" href="#">Informations</a> 
                         
-                    </div>
+                        
+                    </div> -->
                 </div>
             </div>
             <div class="d-flex flex-column   align-items-start"> 

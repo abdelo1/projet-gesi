@@ -1,3 +1,13 @@
+
+<?php
+  $title=null;
+  if( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php")
+    $title="Accueil";
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/equipe.php")
+    $title="Equipe de France" ;
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/contact.php")
+    $title="Contactez nous" ;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,8 +19,9 @@
     <link rel="stylesheet" href="src/css/owl.theme.default.css">
     <link rel="stylesheet" href="src/css/owl.carousel.min.css">
     <link rel="stylesheet" href="src/css/animate.css">
-    <link rel="stylesheet" href="icomoon/style.css">
-    <title>Ici c'est paris !!</title>
+    <link rel="stylesheet" href="src/css/style-icon.css">
+    <link rel="icon" type="image/png" href="ressources/logo2.png" sizes="32x32">
+    <title><?=$title?></title>
 </head>
 <body>
   <div class="super-head">
@@ -21,9 +32,13 @@
            <a href="#" class="icon-head icon-twitter ml-4"></a>
            <a href="#" class="icon-head  icon-linkedin ml-4"></a>
         </div>
-        <div class="col-md-4 search_div col-6 d-flex flex-row justify-content-center align-items-center">
-          <input type="text" name="search" id="search" class="w-100" placeholder="Rechercher joueur....">
+        <div class="col-md-4 search_div col-6 d-flex flex-row justify-content-center align-items-center position-relative">
+          <input type="text" autocomplete="off" name="search" id="search" class="w-100" placeholder="Rechercher joueur....">
           <a style="color:white;padding:0.8rem 1rem;background-color:black" href="#" class="icon-search"></a>
+          <div style="" class=" output d-flex flex-column justify-content-start align-items-stretched">
+            
+
+          </div>
         </div>
         <div class="head-info col-5 d-none mt-3 d-md-flex flex-row justify-content-end align-items-center">
             <p class="text-muted"> <a href="#" class="icon-head icon-mail_outline mr-3 "></a>Abdeli12.ai@gmail.com</p>
@@ -39,11 +54,11 @@
           <img src="ressources/logo2.png " width="100px" alt="logo">
       </div>
       <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
-        <a href="#" class="lien">Accueil</a>
-        <a href="#" class="lien">Programme</a>
-        <a href="#" class="lien">Equipe</a>
-        <a href="#" class="lien">Informations </a>
-        <a href="#" class="lien">Contact</a>
+        <a href="index.php" class="lien <?php if($title=="Accueil") echo"active";?>">Accueil</a>
+        <a href="#"  class="lien programme">Programme</a>
+        <a href="equipe.php" class="lien  <?php if($title=="Equipe de France") echo"active";?>">Equipe</a>
+        <!-- <a href="#" class="lien">Informations </a> -->
+        <a href="contact.php" class="lien  <?php if($title=="Contactez nous") echo"active";?>">Contact</a>
       </div>
     </div>
   </div>
@@ -69,17 +84,17 @@
           </div>
           <div class=" mt-5 d-flex flex-row justify-content-center align-items-center">
             <input type="text" name="search" id="search_mobile" placeholder="Rechercher joueur....">
-            <a style="color:white;padding:0.8rem 1rem;background-color:black" href="#" class="icon-search"></a>
+            <a style="color:white;padding:0.8rem 1rem;background-color:black" href="#" class="icon-search icon-search-mobile"></a>
           </div>
            
         </div>
    
         <div style="margin-top:100px" class="d-flex flex-column justify-content-center align-items-stretched ">
-         <a href="#" class="lien_canvas px-5">Accueil</a>
-            <a href="#" class="lien_canvas px-5">Programme</a>
-            <a href="#" class="lien_canvas px-5">Equipe</a>
-            <a href="#" class="lien_canvas px-5">Informations </a>
-            <a href="#" class="lien_canvas px-5">Contact</a>
+         <a href="index.php" class="lien_canvas px-5  <?php if($title=="Accueil") echo"active";?>">Accueil</a>
+            <a href="#" class="lien_canvas px-5 active programme">Programme</a>
+            <a href="equipe.php" class="lien_canvas px-5  <?php if($title=="Equipe de France") echo"active";?>">Equipe</a>
+            <!-- <a href="#" class="lien_canvas px-5">Informations </a> -->
+            <a href="contact.php" class="lien_canvas px-5  <?php if($title=="Contactez nous") echo"active";?>">Contact</a>
         </div>
             
       </div> 

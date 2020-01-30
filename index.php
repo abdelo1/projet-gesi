@@ -1,6 +1,8 @@
 <?php
   include ("header.php");
+ 
 ?>
+</pre>
 <div class="maskAll"> </div><!--d-flex flex-colum justify-content-md-start justify-content-center   align-items-center -->
 <div class="cover ">
  
@@ -10,11 +12,11 @@
     <div class="slides item-1">
         <div class="welcome animated fadeInUp d-md-block d-none ml-5">
           <p class="p-responsive">ALLEZ LES BLEUS.</p> <p style="margin-top:-1rem;margin-left:2rem">REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div class="welcome animated fadeInUp d-md-none d-block">
           <p class="text-center">ALLEZ LES BLEUS. REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div  class="arrow d-flex flex-row  justify-content-around">
           <a  href="#" class="icon-arrow-left prev"></a>
@@ -24,11 +26,11 @@
     <div class="slides item-2">
     <div class="welcome d-md-block d-none ml-5">
           <p class="p-responsive">ALLEZ LES BLEUS.</p> <p style="margin-top:-1rem;margin-left:2rem">REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div class="welcome d-md-none d-block">
           <p class="text-center">ALLEZ LES BLEUS. REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div  class="arrow d-flex flex-row justify-content-around">
           <a  href="#" class="icon-arrow-left prev"></a>
@@ -38,11 +40,11 @@
     <div class="slides item-3">
        <div class="welcome d-md-block d-none ml-5">
           <p class="p-responsive">ALLEZ LES BLEUS.</p> <p style="margin-top:-1rem;margin-left:2rem">REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div class="welcome d-md-none d-block">
           <p class="text-center">ALLEZ LES BLEUS. REVONS PLUS GRAND !!</p>
-          <a href="#section" class="btn_custom"> VOIR PLUS >></a>
+          <a href="#section" class="btn_custom voirpluscover"> VOIR PLUS >></a>
         </div>
         <div  class="arrow d-flex flex-row  justify-content-around">
           <a  href="#" class="icon-arrow-left prev"></a>
@@ -57,7 +59,7 @@
   <div style="margin-top:-20px;margin-bottom:10px;z-index:5;" class="div-entrance col-12 row justify-content-center">
     <div class=" entrance ml-4 ml-md-0">
       <div class="info p-3 d-flex flex-column justify-content-center">
-          <h5 class="font-weight-bold text-white">Championnat de france </br> de football . </h5>
+          <h5 class="font-weight-bold text-white">Les joueurs selectionne viennent d'arriver a ClaireFontaine. </h5>
           <p class=" text-white mt-3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Eos repellat autem illum nostrum sit distinctio!
@@ -106,7 +108,7 @@
           </div>
       </div>
       <div class="last_match w-100  mt-5 ">
-         <p class="text-dark">Tout dernier match</p>
+         <p class="text-dark">Recemment joue</p>
          <div class="tab-link w-100">
             <a class="link-tab link-tab_active" href="#">
                  Euro
@@ -118,7 +120,7 @@
          <div class="div_tab euro w-100 mt-4 d-flex flex-column">
             <div class="first card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                <div class="d-flex col-md-4 flex-md-row flex-column col-12 justify-content-center align-items-center  ">
+                <div class="d-flex col-md-4 flex-md-row flex-column col-12  justify-content-center  justify-content-md-start  align-items-center  ">
                    <img src="ressources/logo2.png"  alt="">
                    <span class="ml-2 mt-4">FRANCE</span>
                 </div>
@@ -135,7 +137,7 @@
             </div>
             <div class="second mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row col-md-4 flex-column  col-12 justify-content-center align-items-center ">
+                  <div class="d-flex flex-md-row col-md-4 flex-column  col-12 justify-content-center  justify-content-md-start align-items-center ">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -153,7 +155,7 @@
               </div>
             <div class="last mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center  col-md-4">
+                  <div class="d-flex flex-md-row flex-column  col-12  justify-content-center  justify-content-md-start align-items-center  col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -174,7 +176,7 @@
          <div class="div_tab coupe w-100 mt-4 d-flex flex-column">
             <div class="first  card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center col-md-4">
+                <div class="d-flex flex-md-row flex-column  col-12  justify-content-center  justify-content-md-start align-items-center col-md-4">
                    <img src="ressources/logo2.png"  alt="">
                    <span class="ml-2 mt-4">FRANCE</span>
                 </div>
@@ -191,7 +193,7 @@
             </div>
             <div class="second mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column  col-12 justify-content-center align-items-center col-md-4">
+                  <div class="d-flex flex-md-row flex-column  col-12  justify-content-center  justify-content-md-start align-items-center col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -209,7 +211,7 @@
               </div>
             <div class="last mt-2 card p-3  w-100">
               <div class="versus w-100 d-flex flex-column  flex-md-row justify-content-between align-items-center">
-                  <div class="d-flex flex-md-row flex-column col-12 justify-content-center align-items-center  col-md-4">
+                  <div class="d-flex flex-md-row flex-column col-12  justify-content-center  justify-content-md-start align-items-center  col-md-4">
                     <img src="ressources/logo2.png"  alt="">
                     <span class="ml-2 mt-4">FRANCE</span>
                   </div>
@@ -263,9 +265,9 @@
         <div class="carte card mt-3 mt-md-0">
         <div class="carte-head">
           <img src="ressources/photofamille.jpg" alt="">
-          </div>
+          </div> 
           <div class="carte-body p-2 ">
-            <h5 style="color:gray" class="font-weight-bold">Photo de famille de la federation . </h5>
+            <h5 style="color:gray" class="font-weight-bold">Photo de famille de l'equipe de france . </h5>
             <p style="line-height:30px;color:black" class="  mt-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Eos repellat autem illum nostrum sit distinctio!
@@ -279,6 +281,31 @@
       
       </div>
   </section>
+  <div class="programme-div">
+    <img src="ressources/matchavenir.png" alt="">
+  </div>
+  <div class="infojoueur-div d-flex flex-column flex-md-row  justify-content-md-between justify-content-center align-items-center">
+    <div class="div-img ">
+      <img src="" alt="">
+    </div>
+    <div class="div-info d-flex flex-column justify-content-center align-items-center">
+     <div class="d-flex flex-inline">
+       <span class="text-muted">Nom : </span><span class="ml-1 nom"> </span>
+     </div> 
+     <div class="d-flex flex-inline">
+       <span class="text-muted">Ne le : </span><span class="ml-1 ddn"> </span>
+     </div> 
+     <div class="d-flex flex-inline">
+       <span class="text-muted">A : </span><span class="ml-1 ldn"> </span>
+     </div> 
+     <div class="d-flex flex-inline">
+       <span class="text-muted">Club : </span><span class="ml-1 club"> </span>
+     </div> 
+     <div class="d-flex flex-inline">
+       <span class="text-muted">Poste: </span><span class="ml-1 poste"> </span>
+     </div> 
+    </div>
+  </div>
 <?php
   include ("footer.php");
 ?>

@@ -10,7 +10,8 @@
 //          e.target.firstChildren.classList.remove("show")
 //       },false)
 
-$(document).ready(function(){
+$(function(){
+
     index=0
     currentIndex=0
     slider=$('.slider')
@@ -21,6 +22,10 @@ $(document).ready(function(){
     coupeDuMonde=$('.coupe')
     euro=$('.euro')
     timeup=$('.timeup')
+    search= $("#search")
+    search_mobile= $("#search_mobile")
+    $(".programme-div").hide()
+    $(".infojoueur-div").removeClass('d-flex').hide()
     timeup.hide()
     countDownDate = new Date("march 12, 2020 16:37:52").getTime();
     setInterval(function() {
@@ -174,7 +179,8 @@ $(document).ready(function(){
     $(".maskAll").click(function(){
         $(".canvas").removeClass("slide-out")
         $(".maskAll").hide()
-    
+        $(".programme-div").hide()
+        $(".infojoueur-div").removeClass("d-flex").hide()
     })
     $(".icon-close").click(function(e){
         e.preventDefault()
@@ -183,5 +189,97 @@ $(document).ready(function(){
     
     })
 
+   search.keyup(function(){
+       query="nom="+$(this).val()
+       $.get("search.php",query,function(data){
+           $('.output').empty()
+           $('.output').html(data)
+       })
+       .fail(function(){
+           console.log("erreur lors de la requete ajax")
+       })
+   })
+   $('.output').mouseover(function(e){
+       search.val(e.target.innerText) 
+      
+   })
+   $('.output').click(function(e){
+    search.val(e.target.innerText)
+    $(this).empty() 
+})
+$('.programme').click(function(e){
+    e.preventDefault()
+    $(".maskAll").show()
+    $(".programme-div").show()
+})
+$('.voirpluscover').click(function(e){
+    e.preventDefault()
+     $('body,html').animate({
+               scrollTop:$(this.hash).offset().top
+             },1000)
 
+  })
+  $('.icon-search').click(function(e){
+    e.preventDefault()
+   if(search.val())
+   {
+    query="nom="+search.val()+"&search=1"
+    $.get("search.php",query,function(data){
+        if(data=="joueur inexistant")
+             alert("Ce joueur ne figure pas dans la liste des selectionnes")
+        else
+        {
+            alert(data)
+            data=JSON.parse(data)
+             $('.infojoueur-div .nom').text(data.nom)
+            $('.infojoueur-div .ddn').text(data.ddn)
+            $('.infojoueur-div .ldn').text(data.ldn)
+            $('.infojoueur-div .poste').text(data.poste)
+            $('.infojoueur-div img').attr("src",data.photo)
+            $('.infojoueur-div .club').text(data.club)
+            $(".infojoueur-div").addClass('d-flex').show()
+            $(".maskAll").show()
+        }
+        search.val("")
+    })
+    .fail(function(){
+        console.log("erreur lors de la requete ajax")
+    })
+    
+   }
+
+  })
+  $('.icon-search-mobile').click(function(e){
+    e.preventDefault()
+   if(search_mobile.val())
+   {
+    query="nom="+search_mobile.val()+"&search=1"
+    $.get("search.php",query,function(data){
+        if(data=="joueur inexistant")
+             alert("Ce joueur ne figure pas dans la liste des selectionnes")
+        else
+        {
+            alert(data)
+            data=JSON.parse(data)
+             $('.infojoueur-div .nom').text(data.nom)
+            $('.infojoueur-div .ddn').text(data.ddn)
+            $('.infojoueur-div .ldn').text(data.ldn)
+            $('.infojoueur-div .poste').text(data.poste)
+            $('.infojoueur-div img').attr("src",data.photo)
+            $('.infojoueur-div .club').text(data.club)
+            $(".infojoueur-div").addClass('d-flex').show()
+            $(".maskAll").show()
+            $(".canvas").removeClass("slide-out")
+        }
+       search_mobile.val("")
+           
+    })
+    .fail(function(){
+        console.log("erreur lors de la requete ajax")
+    })
+    
+
+   }
+
+  })
 })

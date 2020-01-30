@@ -1,0 +1,49 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "equipe",
+            "dialect": "MariaDB",
+            "name": "abdel",
+            "password": "abdeli12",
+            "port": 3306,
+            "server": "localhost",
+            "username": "mysql"
+        },
+        {
+            "database": "equipe",
+            "dialect": "MariaDB",
+            "name": "abdel",
+            "password": "abdeli12",
+            "port": 3306,
+            "server": "localhost",
+            "username": "mysql"
+        },
+        {
+            "database": "equipe",
+            "dialect": "MySQL",
+            "name": "abdel",
+            "password": "abdeli12",
+            "port": 3306,
+            "server": "localhost",
+            "username": "mysql"
+        },
+        {
+            "database": "equipe",
+            "dialect": "MariaDB",
+            "name": "abdel",
+            "password": "abdeli12",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        },
+        {
+            "askForPassword": true,
+            "database": "equipe",
+            "dialect": "MySQL",
+            "name": "abdel",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}

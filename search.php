@@ -1,19 +1,19 @@
 <?php
-$pdo=new PDO("mysql:host=localhost;dbname=equipe","root","");
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require("functions/functions.php");
+$pdo=init_bdd();
 
-  if(isset($_GET["nom"])&& !empty($_GET["nom"]))
-  {
+   if(isset($_GET["nom"])&& !empty($_GET["nom"]))
+    {
       if(isset($_GET["search"])&& $_GET["search"]==1)
       {
         extract($_GET);
-        $req = $pdo->prepare('SELECT * FROM titulaire WHERE nom =:nom ');
+        $req = $pdo->prepare('SELECT * FROM titulaire WHERE nom LIKE :nom ');
         $result=$req->execute([
-            'nom' =>  $nom
+            'nom' =>  '%' . $nom. '%'
         ]);
         
             
-            $data = $req->fetch();
+        $data = $req->fetch();
         if($data)
             {
                 $membres=[
@@ -39,21 +39,15 @@ $pdo=new PDO("mysql:host=localhost;dbname=equipe","root","");
         $result=$req->execute([
             'nom' => '%' . $nom. '%'
         ]);
-        
-       
-         $membres = "";
-          if($data = $req->fetch())
-        {  while($data = $req->fetch()) 
+
+        if($data = $req->fetchAll(PDO::FETCH_OBJ))
+        {    
+           foreach($data as $value)
             {
-                if(!$membres) {
-                    $membres = '<p class="lien_output" data-poste="'.$data['poste'].'" data-ldn="'.$data['ldn'].'" data-ddn="'.$data['ddn'].'" data-club="'.$data['club'].'"  data-photo="'.$data['photo'].'">' . $data['nom'] . '</p>';
-                }
-                else {
-                    $membres .= '<p class="lien_output" data-poste="'.$data['poste'].'" data-ldn="'.$data['ldn'].'" data-ddn="'.$data['ddn'].'" data-club="'.$data['club'].'"  data-photo="'.$data['photo'].'">' . $data['nom'] . '</p>';
-                }
+                
+                   echo '<p class="lien_output" data-poste="'.$value->poste.'" data-ldn="'.$value->ldn.'" data-ddn="'.$value->ddn.'" data-club="'.$value->club.'"  data-photo="'.$value->photo.'">' . $value->nom. '</p>';
             }
         
-            echo $membres; 
         }
 
       }

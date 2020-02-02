@@ -1,5 +1,6 @@
 
 <?php
+
   $title=null;
   if( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php")
     $title="Accueil";
@@ -7,6 +8,16 @@
     $title="Equipe de France" ;
   elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/contact.php")
     $title="Contactez nous" ;
+    elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/programme.php")
+    $title="Programme des matchs" ;
+   elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/post_articles.php")
+    $title="Espace Admin|Poster article" ;
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/post_match.php")
+    $title="Espace Admin|Poster match" ;
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/listing.php")
+    $title="Espace Admin|Lister tous" ;
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/post_joueur.php")
+    $title="Espace Admin|Inserer joueur" ;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,13 +25,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/owl.theme.default.css">
-    <link rel="stylesheet" href="src/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="src/css/animate.css">
-    <link rel="stylesheet" href="src/css/style-icon.css">
-    <link rel="icon" type="image/png" href="ressources/logo2.png" sizes="32x32">
+    <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"):?>
+      <link rel="stylesheet" href="../src/css/style.css">
+      <link rel="stylesheet" href="../src/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../src/css/owl.theme.default.css">
+      <link rel="stylesheet" href="../src/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="../src/css/animate.css">
+      <link rel="stylesheet" href="../src/css/style-icon.css">
+      <link rel="icon" type="image/png" href="../ressources/logo2.png" sizes="32x32">
+    <?php else : ?> 
+      <link rel="stylesheet" href="src/css/style.css">
+      <link rel="stylesheet" href="src/css/bootstrap.min.css">
+      <link rel="stylesheet" href="src/css/owl.theme.default.css">
+      <link rel="stylesheet" href="src/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="src/css/animate.css">
+      <link rel="stylesheet" href="src/css/style-icon.css">
+      <link rel="icon" type="image/png" href="ressources/logo2.png" sizes="32x32">
+    <?php endif ;?>
+   
+   
     <title><?=$title?></title>
 </head>
 <body>
@@ -32,14 +55,17 @@
            <a href="#" class="icon-head icon-twitter ml-4"></a>
            <a href="#" class="icon-head  icon-linkedin ml-4"></a>
         </div>
-        <div class="col-md-4 search_div col-6 d-flex flex-row justify-content-center align-items-center position-relative">
-          <input type="text" autocomplete="off" name="search" id="search" class="w-100" placeholder="Rechercher joueur....">
-          <a style="color:white;padding:0.8rem 1rem;background-color:black" href="#" class="icon-search"></a>
-          <div style="" class=" output d-flex flex-column justify-content-start align-items-stretched">
-            
+        <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+        
+        <?php else:?>
+          <div class="col-md-4 search_div col-6 d-flex flex-row justify-content-center align-items-center position-relative">
+            <input type="text" autocomplete="off" name="search" id="search" class="w-100" placeholder="Rechercher joueur....">
+            <a style="color:white;padding:0.8rem 1rem;background-color:black" href="#" class="icon-search"></a>
+            <div style="" class=" output d-flex flex-column justify-content-start align-items-stretched">
 
+            </div>
           </div>
-        </div>
+        <?php endif;?>
         <div class="head-info col-5 d-none mt-3 d-md-flex flex-row justify-content-end align-items-center">
             <p class="text-muted"> <a href="#" class="icon-head icon-mail_outline mr-3 "></a>Abdeli12.ai@gmail.com</p>
             <p class="text-muted ml-2"> <a href="#" class="icon-head icon-phone_android mr-3 "></a>+241 77 45 20 17</p>
@@ -51,18 +77,33 @@
     </div>
     <div class="menu col-md-12 d-none d-lg-flex flex-row justify-content-between position-relative">
       <div style="top:-30px;z-index:3" class="logo col-3 justify-content-center d-flex position-absolute">
-          <img src="ressources/logo2.png " width="100px" alt="logo">
+        <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+          <img src="../ressources/logo2.png " width="100px" alt="logo">
+        <?php else:?>
+        <img src="ressources/logo2.png " width="100px" alt="logo">
+        <?php endif;?>
       </div>
-      <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
-        <a href="index.php" class="lien <?php if($title=="Accueil") echo"active";?>">Accueil</a>
-        <a href="#"  class="lien programme">Programme</a>
-        <a href="equipe.php" class="lien  <?php if($title=="Equipe de France") echo"active";?>">Equipe</a>
-        <!-- <a href="#" class="lien">Informations </a> -->
-        <a href="contact.php" class="lien  <?php if($title=="Contactez nous") echo"active";?>">Contact</a>
-      </div>
+      <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+        <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
+          <a href="post_articles.php" class="lien <?php if($title=="Espace Admin|Poster article") echo"active";?>">Inserer article</a>
+          <a href="post_match.php" class="lien  <?php if($title=="Espace Admin|Poster match") echo"active";?>">Inserer match</a>
+          <a href="post_joueur.php" class="lien  <?php if($title=="Espace Admin|Inserer joueur") echo"active";?>">Inserer joueur</a>
+          <a href="listing.php" class="lien  <?php if($title=="Espace Admin|Lister tous") echo"active";?>">Lister</a>
+        </div>
+      <?php else :?>
+        <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
+          <a href="index.php" class="lien <?php if($title=="Accueil") echo"active";?>">Accueil</a>
+          <a href="programme.php"  class="lien <?php if($title=="Programme des matchs") echo"active";?>">Programme</a>
+          <a href="equipe.php" class="lien  <?php if($title=="Equipe de France") echo"active";?>">Equipe</a>
+          <!-- <a href="#" class="lien">Informations </a> -->
+          <a href="contact.php" class="lien  <?php if($title=="Contactez nous") echo"active";?>">Contact</a>
+        </div>
+      <?php endif ;?>
     </div>
   </div>
-   
+  <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+        
+        <?php else:?>
    
   <div class="menu_mobile d-lg-none col-md-12 d-flex flex-row position-relative">
       <div style="top:-30px;z-index:3" class="logo col-3 justify-content-center d-flex position-absolute">
@@ -91,13 +132,14 @@
    
         <div style="margin-top:100px" class="d-flex flex-column justify-content-center align-items-stretched ">
          <a href="index.php" class="lien_canvas px-5  <?php if($title=="Accueil") echo"active";?>">Accueil</a>
-            <a href="#" class="lien_canvas px-5 active programme">Programme</a>
+            <a href="programme.php" class="lien_canvas px-5 <?php if($title=="Programme des matchs") echo"active";?>">Programme</a>
             <a href="equipe.php" class="lien_canvas px-5  <?php if($title=="Equipe de France") echo"active";?>">Equipe</a>
             <!-- <a href="#" class="lien_canvas px-5">Informations </a> -->
             <a href="contact.php" class="lien_canvas px-5  <?php if($title=="Contactez nous") echo"active";?>">Contact</a>
         </div>
             
       </div> 
-    </div>  
+    </div> 
+   <?php endif;?> 
     
 

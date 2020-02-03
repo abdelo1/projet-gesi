@@ -2,18 +2,18 @@
 include ("header.php");
 require("functions/functions.php");
 
-if (isset($_GET['id']))
+if (!isset($_GET['id']))
+{ header("location:page404.php");
+   
+}
+else
 {
-    extract($_GET);
+   extract($_GET);
     $pdo=init_bdd();
 
 $result=$pdo->query("SELECT * from article WHERE id={$id}");
 $data=$result->fetch(PDO::FETCH_OBJ);
 
-}
-else
-{
-   header("location:page404.php");
 }
 
 ?>

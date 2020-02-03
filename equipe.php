@@ -3,7 +3,7 @@
   require("functions/functions.php");
   $pdo=init_bdd();
   $query=$pdo->query("SELECT * from  titulaire");
-  $query1=$pdo->query("SELECT * from article WHERE id ORDER BY id DESC LIMIT 2,3 ");
+  $query1=$pdo->query("SELECT * from article ORDER BY id DESC LIMIT 2,3 ");
   $result1=$query1->fetchAll(PDO::FETCH_OBJ);
 
   $erreurpasdejoueur=null;
@@ -49,7 +49,7 @@
        <div class="attaquant w-100 d-flex flex-row flex-wrap">
           <?php foreach ($attaquants as $value):?>
             <div  class="d-flex attaquant-inner ml-1 flex-column align-items-start">
-              <img class="w-100" src="<?= $value->photo?>" alt="">
+              <img class="" src="<?= $value->photo?>" width="200px" height="150px" alt="">
               <div style=" background-color:#185e8f;" class="w-100 p-1">
                 <p style="font-size:0.7rem" class="text-white font-weight-bold"><?= $value->nom?></p>
                 <p style="font-size:0.7rem" class="text-white">Ne le <?= $value->ddn?></p>
@@ -65,7 +65,7 @@
        <div class="milieux w-100 d-flex flex-row flex-wrap">
           <?php foreach ($milieux as $value):?>
             <div  class="d-flex attaquant-inner ml-1 flex-column align-items-start">
-              <img class="w-100" src="<?= $value->photo?>" alt="">
+              <img class="" src="<?= $value->photo?>" width="200px" height="150px" alt="">
               <div style=" background-color:#185e8f;" class="w-100 p-1">
                 <p style="font-size:0.7rem" class="text-white font-weight-bold"><?= $value->nom?></p>
                 <p style="font-size:0.7rem" class="text-white">Ne le <?= $value->ddn?></p>
@@ -81,7 +81,7 @@
        <div class="attaquant w-100 d-flex flex-row flex-wrap">
           <?php foreach ($defenseur as $value):?>
             <div  class="d-flex attaquant-inner ml-1 flex-column align-items-start">
-              <img class="w-100" src="<?= $value->photo?>" alt="">
+              <img class="" src="<?= $value->photo?>" width="200px" height="150px" alt="">
               <div style=" background-color:#185e8f;" class="w-100 p-1">
                 <p style="font-size:0.7rem" class="text-white font-weight-bold"><?= $value->nom?></p>
                 <p style="font-size:0.7rem" class="text-white">Ne le <?= $value->ddn?></p>
@@ -97,7 +97,7 @@
        <div class="attaquant w-100 d-flex flex-row flex-wrap">
           <?php foreach ($gardien as $value):?>
             <div  class="d-flex attaquant-inner ml-1 flex-column align-items-start">
-              <img class="w-100" src="<?= $value->photo?>" alt="">
+              <img class="" width="200px" height="150px" src="<?= $value->photo?>" alt="">
               <div style=" background-color:#185e8f;" class="w-100 p-1">
                 <p style="font-size:0.7rem" class="text-white font-weight-bold"><?= $value->nom?></p>
                 <p style="font-size:0.7rem" class="text-white">Ne le <?= $value->ddn?></p>
@@ -113,7 +113,7 @@
        <div class="attaquant w-100 d-flex flex-row flex-wrap">
           <?php foreach ($coach as $value):?>
             <div  class="d-flex attaquant-inner ml-1 flex-column align-items-start">
-              <img class="w-100" src="<?= $value->photo?>" alt="">
+              <img class="" width="200px" height="150px" src="<?= $value->photo?>" alt="">
               <div style=" background-color:#185e8f;" class="w-100 p-1">
                 <p style="font-size:0.7rem" class="text-white font-weight-bold"><?= $value->nom?></p>
                 <p style="font-size:0.7rem" class="text-white">Ne le <?= $value->ddn?></p>

@@ -4,7 +4,10 @@
 
   if($_SERVER["REQUEST_METHOD"]=="POST")
   {
+      $success=null;    
       $erreurs=post_article();
+      if(empty($erreurs))
+       $success="Votre article a bien ete poste";
   }
 
 ?>
@@ -15,7 +18,7 @@
   <img class="mb-4" src="" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal text-center">Insertion d'articles</h1>
 
-   <?php if(isset($erreurs)):?>
+   <?php if(!empty($erreurs)):?>
     <?php foreach($erreurs as $erreur):?>
       <div class="row">
         <div class="col-sm-12">
@@ -23,14 +26,21 @@
         </div>
        </div>
      <?php endforeach;?>
-  
-   <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($success)): ?>
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-primary"><p><?=$success?></p></div>
+        </div>
+       </div>
+    <?php endif; ?>
+   
   <input type="text"  name="titre" class="form-control" placeholder="titre"  required autofocus>
   
   <input type="file" name="file" id=""  class="form-control  mt-2">
   <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"></textarea>
  
-  <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Inserer</button>
+  <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Inserer</button>
 
 </form>
 </div>

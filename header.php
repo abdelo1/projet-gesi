@@ -18,6 +18,8 @@
     $title="Espace Admin|Lister tous" ;
   elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/post_joueur.php")
     $title="Espace Admin|Inserer joueur" ;
+    elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/modifier.php")
+    $title="Espace Admin|Modification" ;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,7 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"):?>
+    <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
       <link rel="stylesheet" href="../src/css/style.css">
       <link rel="stylesheet" href="../src/css/bootstrap.min.css">
       <link rel="stylesheet" href="../src/css/owl.theme.default.css">
@@ -46,7 +48,28 @@
    
     <title><?=$title?></title>
 </head>
+<style>
+.itemdropdown:hover{
+    background-color: #1b1a1a!important;
+    text-decoration:none!important;
+    
+}
+.menu-dropdown{
+  display:none;
+}
+.dropdown-div:hover >.menu-dropdown{
+  display:flex;
+  flex-direction: column ;
+  justify-content:center;
+   align-items:stretch;
+   position:absolute;
+
+}
+
+
+</style>
 <body>
+
   <div class="super-head">
      <div class="head d-flex flex-row col-12 justify-content-between">
         <div class="icon-head-right head col-3  d-flex flex-row justify-content-center align-items-center">
@@ -55,7 +78,7 @@
            <a href="#" class="icon-head icon-twitter ml-4"></a>
            <a href="#" class="icon-head  icon-linkedin ml-4"></a>
         </div>
-        <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+        <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
         
         <?php else:?>
           <div class="col-md-4 search_div col-6 d-flex flex-row justify-content-center align-items-center position-relative">
@@ -77,18 +100,26 @@
     </div>
     <div class="menu col-md-12 d-none d-lg-flex flex-row justify-content-between position-relative">
       <div style="top:-30px;z-index:3" class="logo col-3 justify-content-center d-flex position-absolute">
-        <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
-          <img src="../ressources/logo2.png " width="100px" alt="logo">
+        <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
+        <a href=""><img src="../ressources/logo2.png " width="100px" alt="logo"></a> 
         <?php else:?>
-        <img src="ressources/logo2.png " width="100px" alt="logo">
+       <a href="index.php"><img src="ressources/logo2.png " width="100px" alt="logo"></a> 
         <?php endif;?>
       </div>
-      <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+      <?php if ($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
         <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
           <a href="post_articles.php" class="lien <?php if($title=="Espace Admin|Poster article") echo"active";?>">Inserer article</a>
           <a href="post_match.php" class="lien  <?php if($title=="Espace Admin|Poster match") echo"active";?>">Inserer match</a>
           <a href="post_joueur.php" class="lien  <?php if($title=="Espace Admin|Inserer joueur") echo"active";?>">Inserer joueur</a>
-          <a href="listing.php" class="lien  <?php if($title=="Espace Admin|Lister tous") echo"active";?>">Lister</a>
+          <div class=" dropdown-div position-relative">
+            <p  class="lien  <?php if($title=="Espace Admin|Lister tous") echo"active";?>">Lister</p>
+              <div style="width:200px;height:150px;background-color:black;left:-130px;top:37px;" class="p-1 menu-dropdown ">
+                <a style="color: white;" href="listing.php?type=article" class="p-2 itemdropdown">Lister les articles</a>
+                <a style="color: white; margin-top: 10px;" href="listing.php?type=match" class="p-2 itemdropdown">Lister les matchs</a>
+                <a style="color: white; margin-top: 10px;" href="listing.php?type=joueur" class="p-2 itemdropdown">Lister les joueurs</a>
+              </div>
+          </div>
+        
         </div>
       <?php else :?>
         <div class="link-menu col-6 d-flex flex-row ml-auto justify-content-center align-items-center">
@@ -101,7 +132,7 @@
       <?php endif ;?>
     </div>
   </div>
-  <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"):?>
+  <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
         
         <?php else:?>
    
@@ -142,4 +173,3 @@
     </div> 
    <?php endif;?> 
     
-

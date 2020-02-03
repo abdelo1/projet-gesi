@@ -63,7 +63,6 @@
 .lien{
     color: white;
     font-size: 13px;
-    font-weight: bold;
     text-transform: uppercase;
     margin: 0 1rem; 
     padding: 1rem 0;
@@ -596,6 +595,8 @@ float: left;
         background-position: 50% 0px;
     }
 }
+
+
 
 @media screen and (max-width:415px){
     .arrow{

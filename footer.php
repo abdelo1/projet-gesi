@@ -19,21 +19,19 @@
                 </div>
             </div>
             <div class="d-flex flex-column   align-items-start"> 
-            <h4 style="" class="text-white">Abonnez vous a notre newsletter</h4> 
-            <p style="color:#999999" class="">
-                Vous recevrez des informations concernant nos offres en boutriques <br> ainsi que toute l'actualite du football francais
-            </p>
-            <form action="#" method="post">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Entrez votre email" aria-label="Enter Email" aria-describedby="button-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Envoyer</button>
-                  </div>
-                </div>
-              </form>
-
+                <h4 style="" class="text-white">Abonnez vous a notre newsletter</h4> 
+                <p style="color:#999999" class="">
+                    Vous recevrez des informations concernant nos offres en boutriques <br> ainsi que toute l'actualite du football francais
+                </p>
+                <form action="#" method="post">
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Entrez votre email" aria-label="Enter Email" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="button-addon2">Envoyer</button>
+                    </div>
+                    </div>
+                </form>
             </div>
-           
             </div>
             <div style="margin-top:50px" class="col-12 d-flex flex-column">
                 

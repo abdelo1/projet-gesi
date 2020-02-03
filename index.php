@@ -10,7 +10,7 @@
   //recupere les match qui viennent d'etre joue 
   $result1=$pdo->query("SELECT * from programme WHERE scoreequipe1 NOT LIKE 'NULL' ORDER BY id DESC LIMIT 10");
   //recupere les deux derniers articles
-  $result3=$pdo->query("SELECT * from article ORDER BY id DESC LIMIT 2,2 ");
+  $result3=$pdo->query("SELECT * from article ORDER BY id DESC LIMIT 6 ");
   $data=$result->fetchAll(PDO::FETCH_OBJ);
   $data1=$result1->fetchAll(PDO::FETCH_OBJ);
   $data2=$result3->fetchAll(PDO::FETCH_OBJ);
@@ -128,7 +128,9 @@ $coupeArray=[];
 </div>
 
   <div style="margin-top:-20px;margin-bottom:10px;z-index:5;" class="div-entrance col-12 d-flex flex-column flex-md-row align-items-center justify-content-center ">
-  <?php foreach ($data2 as $value): ?>
+   <?php $i=0;?>
+   <?php foreach ($data2 as $value): ?>
+    <?php if($i==3)break;?>
    <div style="width: 360px;height: 400px;transition: 0.5s;position:relative;" class="entrance mt-3 mt-md-0 ml-4">
       <img style="width:100%;height:100%;top:0;left:0;bottom:0" src="<?=$value->photo?>" class=" position-absolute" alt="">
       <div style="width:100%;height:100%;top:0;left:0;bottom:0" class="info position-absolute p-3 d-flex flex-column justify-content-center">   
@@ -142,6 +144,7 @@ $coupeArray=[];
         </div> 
       </div>
     </div>
+    <?php $i++;?>
   <?php endforeach; ?>
   </div>
   <section id="section" class="p-5 first_section">
@@ -229,49 +232,25 @@ $coupeArray=[];
       </div>
       <div style="margin-top:160px" class="last_news  w-100">
         <h3 style="color:black" class="text-center derniereminute ">Dernieres minutes</h3>
-      <div style="margin-top:70px" class="row d-flex flex-md-row flex-column flex-wrap justify-content-around ">
-        <div class="carte card ">
-        <div class="carte-head">
-          <img src="ressources/photo_mannequin.jpg" alt="">
-          </div>
-          <div class="carte-body p-3 ">
-            <h5 style="color:gray" class="font-weight-bold ">Partenariat avec la marque sportive Nike . </h5>
-            <p style="line-height:30px;color:black" class=" mt-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-            </p>
-          </div>
-        </div>
-        <div class="carte card mt-3 mt-md-0">
-          <div class="carte-head">
-          <img src="ressources/shotvideo.png" alt="">
-          </div>
-          <div class="carte-body p-3 ">
-            <h5 style="color:gray" class="font-weight-bold ">Final de la coupe du monde  de football . </h5>
-            <p style="line-height:30px;color:black" class=" mt-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-            </p>
-          </div>
-        </div>
-        <div class="carte card mt-3 mt-md-0">
-        <div class="carte-head">
-          <img src="ressources/photofamille.jpg" alt="">
-          </div> 
-          <div class="carte-body p-2 ">
-            <h5 style="color:gray" class="font-weight-bold">Photo de famille de l'equipe de france . </h5>
-            <p style="line-height:30px;color:black" class="  mt-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos repellat autem illum nostrum sit distinctio!
-            </p>
-          </div>
-        </div>
+        <div style="margin-top:70px" class="row d-flex flex-md-row flex-column flex-wrap justify-content-around ">
+          <?php $i=0;?>
+          <?php foreach ($data2 as $value): ?>
+            <?php if($i>=3):?>
+              <div class="carte card mt-3 mt-md-0">
+                <div class="carte-head">
+                <img src="<?=$value->photo?>" alt="">
+                </div>
+                <div class="carte-body p-3 ">
+                  <h5 style="color:gray" class="font-weight-bold "><?=$value->titre?> </h5>
+                  <p style="line-height:30px;color:black" class=" mt-3">
+                   <?= reduce($value->contenu)?>
+                  </p>
+                  <a href="article.php?id=<?=$value->id?>" class="btn_custom mt-4">Lire l'article >></a>
+                </div>
+              </div>
+            <?php endif;?>
+            <?php $i++;?>
+          <?php endforeach;?>
         </div>
       </div>
       

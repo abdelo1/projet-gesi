@@ -1,6 +1,7 @@
 
 <?php
 include ("../header.php");
+
 require("../functions/functions.php");
 if(isset($_GET['type']))
   {
@@ -8,24 +9,34 @@ if(isset($_GET['type']))
       extract($_GET);
       if($type=='article')
       {
-        $query1=$pdo->query("SELECT * from article ORDER BY id DESC");
+        $query1=$pdo->query("SELECT * from article ORDER BY ddp ASC");
         $result1=$query1->fetchAll(PDO::FETCH_OBJ);
+        if(!$result1)
+        $message="Aucun article poste !";
       }
-      if($type=='joueur')
+      elseif($type=='joueur')
       {
-        $query1=$pdo->query("SELECT * from titulaire ORDER BY id ASC");
+        $query1=$pdo->query("SELECT * from titulaire ORDER BY nom ASC");
         $result1=$query1->fetchAll(PDO::FETCH_OBJ);
+        if(!$result1)
+        $message="Aucun  joueur dans l'equipe!";
       }
-      if($type=='match')
+      elseif($type=='match')
       {
-        $query1=$pdo->query("SELECT * from programme ORDER BY id DESC");
+        $query1=$pdo->query("SELECT * from programme ORDER BY ddm DESC");
         $result1=$query1->fetchAll(PDO::FETCH_OBJ);
+        if(!$result1)
+        $message="Aucun match dans le programme !";
+      }
+     else {
+        $include=true;
       }
     
   }
   ?>
   
 <div class="container p-5  ">
+<?php if(!empty($include)) include('../page404.php'); ?> 
     <?php if(isset($message)): ?>
       <div class="row">
         <div class="col-sm-12">
@@ -128,6 +139,6 @@ if(isset($_GET['type']))
         </table>
      <?php endif; ?>
 </div>
-<script src="src/js/jquery-3.4.1.js"></script> 
+
 
 

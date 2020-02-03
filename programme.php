@@ -34,8 +34,9 @@ $coupeArray=[];
                     <img src="<?=$value->photoequipe1?>"  alt="">
                     <span class="ml-2 mt-4"><?=$value->equipe1?></span>
                   </div>
-                  <div style="width:100px;height:70px;border-radius:7px;background:black" class="score mt-3 mt-md-0 d-flex flex-row justify-content-center align-items-center text-center">
+                  <div style="width:100px;height:70px;border-radius:7px;background:black" class="score mt-3 mt-md-0 d-flex flex-column justify-content-center align-items-center text-center">
                     <span style="font-size:17px" class="score-left font-weight-bold text-white">VS</span>
+                    <span style="font-size:14px" class="score-left text-white mt-1 "><?=convert_date($value->ddm)?></span>
                   </div>
                   <div class="d-flex flex-md-row flex-column justify-content-center col-12  align-items-center justify-content-md-end col-md-4 ">
                     <span class=" ml-2 mt-4"><?=$value->equipe2?></span>
@@ -54,9 +55,9 @@ $coupeArray=[];
                     <img src="<?=$value->photoequipe1?>"  alt="">
                     <span class="ml-2 mt-4"><?=$value->equipe1?></span>
                   </div>
-                  <div style="width:100px;height:70px;border-radius:7px;background:black" class="score mt-3 mt-md-0 d-flex flex-row justify-content-center align-items-center text-center">
+                  <div style="width:100px;height:70px;border-radius:7px;background:black" class="score mt-3 mt-md-0 d-flex flex-column justify-content-center align-items-center text-center">
                     <span style="font-size:17px" class="score-left font-weight-bold text-white">VS</span>
-
+                    <span style="font-size:14px" class="score-left  text-white mt-1"><?= convert_date($value->ddm)?></span>
                   </div>
                   <div class="d-flex flex-md-row flex-column justify-content-center col-12 align-items-center justify-content-md-end col-md-4">
                     <span class=" ml-2 mt-4"><?=$value->equipe2?></span>

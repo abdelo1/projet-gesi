@@ -33,6 +33,17 @@
                 </form>
             </div>
             </div>
+            <div class="  col-12 col-md-7 ml-auto justify-content-center d-flex flex-column">
+            <h4 style="" class="text-white">Nos partenaires Majeurs</h4> 
+                <div class="d-flex flex row ">
+                    <img src="ressources/w.png" class="ml-3"  alt="">
+                    <img src="ressources/pmu.png" class="ml-3"  alt="">
+                    <img src="ressources/nike.png" class="ml-3"  alt="">
+                    <img src="ressources/assurance.png" class="ml-3"  alt="">
+                </div>
+                
+             
+            </div>
             <div style="margin-top:50px" class="col-12 d-flex flex-column">
                 
                 <h4 style="" class="text-white text-center">Suivez nous :</h4> 

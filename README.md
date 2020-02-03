@@ -3,7 +3,11 @@
 Ce site responsive concerne la gestion d'une equipe de foot .Il est possible de:
 -ajouter un joueur 
 -supprimer un joueur
+-modifier les details d'un joueur
 -inserer des matchs 
+  NB:la date du match suit le format (mois jour,annee Heure:minute) en anglais ex:march 23,2020 12:34
+  pour dire 23 mars 2020 a 12h34
+  Cela est du au faite que la machine sur laquelle a ete cree le site est en anglais  
 -supprimer des matchs
 -mettre a jour des matchs
 -poster un article
@@ -21,27 +25,16 @@ L'utilisateur ne peut que consulter les articles poste par l'admin ainsi que les
  la fonction init_bdd() se trouvant dans le fichier functions.php sous le repertoire functions permet la connexion a la base de donnee avec root comme nom d'utilisateur sans mot de passe
 
 -----------------------------------Style du site et architecture --------------------------------
-
+Couleur primaire = noir
 Couleur secondaire = #f23a2e
-Couleur primaire = #185e8f
+Couleur tertiaire =#185e8f
 police utilise= Montserrat 
-nombre de pages =12 pages dont 5 accessibles par l'utilisateur et 4 accessibles par l'admin.
+nombre de pages =14 pages dont 8 accessibles par l'utilisateur et 6 accessibles que par l'admin.
 le repertoire ressources contient les images stockes dans la base donnee et la police utilise
 le repertoire sources contient les fichiers:
 - css de bootstrap et ceux du site sous le repertoire css
 -js de bootstrap et ceux du site sous le repertoire js
+les fichiers php accessibles par l'utilisateur se trouvent a la racine du dossier
+ceux accessibles que par l'admin se trouve dans le dossier admin
 
 
-
-Voici les modalités de la billetterie pour France-Ukraine, vendredi 27 mars au Stade de France, et France-Finlande, mardi 31 mars au Groupama Stadium de Lyon-Décines.
-
-L’Équipe de France disputera quatre rencontres amicales avant le début de l’UEFA Euro 2020. Les deux premières auront lieu le vendredi 27 mars (21h00) contre l’Ukraine au Stade de France, puis le mardi 31 mars (21h00) contre la Finlande au Groupama Stadium de Lyon-Décines. La Fédération Française de Football mettra en vente les billets dans les conditions suivantes.
-
-FRANCE-UKRAINE
-La billetterie est ouverte sur https://billetterie.fff.fr/ (rubrique billetterie). Tarifs : 20 € / 35 € / 45 € / 65 € / 85 €.
-•         Réduction de 10 % pour tous les membres payants du Club des Supporters et pour les licenciés FFF.
-•         Tribune Supporters : 15 € pour les adhérents payants du Club des Supporters.
-
-•         Tribune Famille : pack de cinq places à 80 € en tribune basse Sud (soit 16 € la place).
-
-•         Tribune Enfants : 16 € pour les moins de 12 ans et 20 € par adulte.

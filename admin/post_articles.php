@@ -36,7 +36,7 @@
     <?php endif; ?>
    
   <input type="text"  name="titre" class="form-control" placeholder="titre"  required autofocus>
-  
+  <p class="mt-1">Photo de l'article :</p>
   <input type="file" name="file" id=""  class="form-control  mt-2">
   <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"></textarea>
  

@@ -41,7 +41,7 @@ function modifier_article(){
     global $pdo;
     $pdo=init_bdd();
    extract($_POST);
-
+    extract($_GET);
     $validation = true;
     $erreurs = [];
     
@@ -49,21 +49,32 @@ function modifier_article(){
         $validation = false;
         $erreurs[] = "Tous les champs sont obligatoires";
     }
-    if(!isset($_FILES["file"]) OR $_FILES["file"]["error"] > 0) {
-        $validation = false;
-        $erreurs[] = "Il faut indiquer un fichier";
+    if(empty($_FILES["file"]) ) {
+        if($validation) {
+            $query=$pdo->prepare("UPDATE article SET titre=?,contenu=? WHERE id=?");
+            $query->execute(array(
+                htmlentities( $titre),
+                htmlentities(nl2br($contenu)),
+                $id
+            ));
+          if(!$query)
+          {
+              $erreurs[]= "L'article n'a pas ete modifie veuillez reessayer !" ;
+          }
+               
+        }
     }
-    
-    if($validation) {
+    else
+    {
+            if($validation) {
         $image = basename($_FILES["file"]["name"]);
         
         move_uploaded_file($_FILES["file"]["tmp_name"], '../ressources/'. $image);
         
-        $query=$pdo->prepare("UPDATE article SET titre=?,contenu=?,ddp=?,photo=? WHERE id=?");
+        $query=$pdo->prepare("UPDATE article SET titre=?,contenu=?,photo=? WHERE id=?");
         $query->execute(array(
             htmlentities( $titre),
             htmlentities(nl2br($contenu)),
-            $date, 
             htmlentities('ressources/'.$image) ,
             $id
         ));
@@ -73,13 +84,18 @@ function modifier_article(){
       }
            
     }
-    
+    }
     return $erreurs;
 }
 function post_match() {
     global $pdo;
     $pdo=init_bdd();
    extract($_POST);
+
+   $date=new DateTime($ddm);
+   $date=$date->format('F d,Y');
+
+  
     $validation = true;
     $erreurs = [];
 
@@ -98,7 +114,7 @@ function post_match() {
       $query=$pdo->prepare("INSERT INTO programme VALUES(?,?,?,?,?,?,?,?,?,?)");
      $result=  $query->execute([
           null,
-          htmlentities($ddm) ,
+          htmlentities($date) ,
           htmlentities($hdm) ,
           htmlentities($categorie),
           htmlentities($equipe1),
@@ -120,31 +136,32 @@ function post_match() {
 function modifier_match() {
     global $pdo;
     $pdo=init_bdd();
+
     extract($_POST);
+    extract($_GET);
     $validation = true;
     $erreurs = [];
+    $date=new DateTime($ddm);
+    $date=$date->format('F d,Y');
 
-    if(!isset($_FILES["photoequipe1"])OR!isset($_FILES["photoequipe2"]) OR $_FILES["photoequipe1"]["error"] > 0 OR $_FILES["photoequipe2"]["error"] > 0) {
-        $validation = false;
-        $erreurs[] = "Il faut indiquer un fichier";
-    }
-    
+    if(isset($_FILES["photoequipe1"])&& !isset($_FILES["photoequipe2"])) {
     if($validation) {
         $image1 = basename($_FILES["photoequipe1"]["name"]);
-        $image2 = basename($_FILES["photoequipe2"]["name"]);
+       
         
         move_uploaded_file($_FILES["photoequipe1"]["tmp_name"], '../ressources/'. $image1);
-        move_uploaded_file($_FILES["photoequipe2"]["tmp_name"], '../ressources/'. $image2);
+
         extract($_POST);
-        $query=$pdo->prepare("UPDATE programme SET ddm=?,hdm=?,categorie=?,equipe1=?,equipe2=?,scoreequipe1=?,scoreequipe2=?,photoequipe1=?,photoequipe2=? WHERE id=?");
+        $query=$pdo->prepare("UPDATE programme SET ddm=?,hdm=?,categorie=?,equipe1=?,equipe2=?,scoreequipe1=?,scoreequipe2=?,photoequipe1=? WHERE id=?");
        $result=  $query->execute([
-          htmlentities($ddm) ,
+              $date,
           htmlentities($hdm) ,
           htmlentities($categorie),
           htmlentities($equipe1),
           htmlentities($equipe2),
           htmlentities($scoreequipe1),
           htmlentities($scoreequipe2),
+          'ressources/'.$image1,
           $id
       ]);
       if(!$result)
@@ -152,6 +169,88 @@ function modifier_match() {
         $erreurs[]= "Le match n'a pas ete modifier veuillez reessayer !" ;
       }
     }
+    }
+    if(!isset($_FILES["photoequipe1"])&& isset($_FILES["photoequipe2"])) {
+        if($validation) {
+        
+            $image2 = basename($_FILES["photoequipe2"]["name"]);
+            
+           
+            move_uploaded_file($_FILES["photoequipe2"]["tmp_name"], '../ressources/'. $image2);
+            extract($_POST);
+            $query=$pdo->prepare("UPDATE programme SET ddm=?,hdm=?,categorie=?,equipe1=?,equipe2=?,scoreequipe1=?,scoreequipe2=?,photoequipe2=? WHERE id=?");
+           $result=  $query->execute([
+               $date,
+              htmlentities($hdm) ,
+              htmlentities($categorie),
+              htmlentities($equipe1),
+              htmlentities($equipe2),
+              htmlentities($scoreequipe1),
+              htmlentities($scoreequipe2),
+              'ressources/'.$image2,
+              $id
+          ]);
+          if(!$result)
+          {
+            $erreurs[]= "Le match n'a pas ete modifier veuillez reessayer !" ;
+          }
+        }
+        }
+        if(isset($_FILES["photoequipe1"])&& isset($_FILES["photoequipe2"])) {
+            if($validation) {
+                $image1 = basename($_FILES["photoequipe1"]["name"]);
+                $image2 = basename($_FILES["photoequipe2"]["name"]);
+                
+                move_uploaded_file($_FILES["photoequipe1"]["tmp_name"], '../ressources/'. $image1);
+                move_uploaded_file($_FILES["photoequipe2"]["tmp_name"], '../ressources/'. $image2);
+                extract($_POST);
+                $query=$pdo->prepare("UPDATE programme SET ddm=?,hdm=?,categorie=?,equipe1=?,equipe2=?,scoreequipe1=?,scoreequipe2=?,photoequipe1=?,photoequipe2=? WHERE id=?");
+               $result=  $query->execute([
+                       $date,
+                  htmlentities($hdm) ,
+                  htmlentities($categorie),
+                  htmlentities($equipe1),
+                  htmlentities($equipe2),
+                  htmlentities($scoreequipe1),
+                  htmlentities($scoreequipe2),
+                  'ressources/'.$image1,
+                  'ressources/'.$image2,
+                  $id
+              ]);
+              if(!$result)
+              {
+                $erreurs[]= "Le match n'a pas ete modifier veuillez reessayer !" ;
+              }
+            }
+            }
+            if(!isset($_FILES["photoequipe1"])&& !isset($_FILES["photoequipe2"])) {
+                if($validation) {
+                   
+                   
+                    extract($_POST);
+                    $query=$pdo->prepare("UPDATE programme SET ddm=?,hdm=?,categorie=?,equipe1=?,equipe2=?,scoreequipe1=?,scoreequipe2=? WHERE id=?");
+                   $result=  $query->execute([
+                           $date,
+                      htmlentities($hdm) ,
+                      htmlentities($categorie),
+                      htmlentities($equipe1),
+                      htmlentities($equipe2),
+                      htmlentities($scoreequipe1),
+                      htmlentities($scoreequipe2),
+                      $id
+                  ]);
+                  if(!$result)
+                  {
+                    $erreurs[]= "Le match n'a pas ete modifier veuillez reessayer !" ;
+                  }
+                }
+                }
+    else
+    {
+
+    }
+    
+
     
     return $erreurs;
 }
@@ -195,37 +294,61 @@ function modifier_joueur() {
     global $pdo;
     $pdo=init_bdd();
    extract($_POST);
+   extract($_GET);
+ 
     $validation = true;
     $erreurs = [];
 
-    if(!isset($_FILES["photo"])OR $_FILES["photo"]["error"] > 0) {
-        $validation = false;
-        $erreurs[] = "Il faut indiquer un fichier";
-    }
+    if(!empty($_FILES["photo"])) {
+        
+        if($validation) {
+            $image1 = basename($_FILES["photo"]["name"]);
+                
+            move_uploaded_file($_FILES["photo"]["tmp_name"], '../ressources/'. $image1);
+            extract($_POST);
     
+          $query=$pdo->prepare("UPDATE titulaire SET nom=?,ddn=?,ldn=?,club=?,photo=?,poste=? WHERE id=?");
+          $result=  $query->execute([
+            htmlentities($nom) ,
+            htmlentities($ddn) ,
+            htmlentities($ldn) ,
+            htmlentities($club),
+            htmlentities('ressources/'.$image1),
+            htmlentities($poste),
+             $id
+         ]);
+          if(!$result)
+          {
+            $erreurs[]= "Le joueur n'a pas ete modifie veuillez reessayer !" ;
+          }
+        }
+        return $erreurs;
+    }
+       
+      
+    else{
+
     if($validation) {
-        $image1 = basename($_FILES["photo"]["name"]);
-            
-        move_uploaded_file($_FILES["photo"]["tmp_name"], '../ressources/'. $image1);
+                
         extract($_POST);
 
-      $query=$pdo->prepare("UPDATE joueur SET nom=?,ddn=?,ldn=?,club=?,photo=?,poste=? WHERE id=?");
-      $result=  $query->execute([
+    $query=$pdo->prepare("UPDATE titulaire SET nom=?,ddn=?,ldn=?,club=?,poste=? WHERE id=?");
+    $result=  $query->execute([
         htmlentities($nom) ,
         htmlentities($ddn) ,
         htmlentities($ldn) ,
         htmlentities($club),
-        htmlentities('ressources/'.$image1),
         htmlentities($poste),
-         $id
-     ]);
-      if(!$result)
-      {
-        $erreurs[]= "Le joueur n'a pas ete modifier veuillez reessayer !" ;
-      }
+        $id
+    ]);
+    if(!$result)
+    {
+        $erreurs[]= "Le joueur n'a pas ete modifie veuillez reessayer !" ;
     }
-    
-    return $erreurs;
+    }
+return $erreurs;
+}
+
 }
 function format_date(string $d):string{
  $split=explode(" ",$d);
@@ -240,9 +363,16 @@ function format_date(string $d):string{
  $mois=[" ","janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"];
  return "{$j} {$mois[(int)$m]} {$a} a {$h}h$min" ;
 }
+function convert_date(string $str):string{
+    $date =new DateTime($str);
+    $date=$date->format('d/m/Y');
+    return $date;
+}
 function reduce(string $str):string{
  if(strlen($str)>50)
   return substr($str,0,50)."...";
+ else
+ return $str;
 }
 function init_bdd ():PDO{
    global $pdo;

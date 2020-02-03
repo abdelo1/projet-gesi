@@ -63,6 +63,7 @@
   justify-content:center;
    align-items:stretch;
    position:absolute;
+   z-index:99;
 
 }
 

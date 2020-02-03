@@ -3,7 +3,7 @@ include ("../header.php");
 require("../functions/functions.php");
 if($_SERVER['REQUEST_METHOD']=='GET')
 {
-  echo'get';
+
         if(isset($_GET['type'])&&isset($_GET['id']))
     {
         $pdo=init_bdd();
@@ -35,13 +35,16 @@ if($_SERVER['REQUEST_METHOD']=='GET')
                 $erreurarticle="Ce joueur n'existe pas ";
             }
         }
+        else {
+          $include=true;
+        }
     }
 }
 
 else
 {
-  extract($_POST);
   extract($_GET);
+  $include=null;
   if($type=='article')
   {
      $erreurs=modifier_article();
@@ -65,10 +68,10 @@ else
      if(empty($erreurs))
        $success="Les details du joueur ont ete modifie avec succes";
   }
-  
 
-
-
+else {
+        $include=true;
+      }
 }
 ?>
 
@@ -103,14 +106,18 @@ else
           </div>
          </div>
       <?php endif; ?>
+      <?php if(empty($erreurs) && !isset($success)): ?>
       
-        <input type="text" value="<?=$result1->titre?>"  name="titre" class="form-control" placeholder="titre"  required autofocus>
+            <input type="text" value="<?=$result1->titre?>"  name="titre" class="form-control" placeholder="titre"  required autofocus>
+            <div class="mt-2">
+              <a href="#" class="btn ajout-article btn-dark btn-md">modifier la photo de l'article</a>
+              <input type="file" disabled  name="file" id=""  class="form-control  mt-2">
+            </div>
+            <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"><?=$result1->contenu?></textarea>
         
-        <input type="file" value="<?=$result1->photo?>" name="file" id=""  class="form-control  mt-2">
-        <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"><?=$result1->contenu?></textarea>
-    
-        <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Modifier</button>
-      
+            <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Modifier</button>
+          
+        <?php endif;?>
     <?php endif;?>
 
   </form>
@@ -143,15 +150,19 @@ else
               <div class="alert alert-primary"><p><?=$success?></p></div>
           </div>
          </div>
+     
+
       <?php endif; ?>
-    
-        <input type="text" name="ddm" value="<?=$result1->ddm?>" class="form-control mt-2" placeholder="ddm"  required autofocus>
+      <?php if(empty($erreurs) && !isset($success)): ?>
+        <input type="date" name="ddm" value="<?=$result1->ddm?>" class="form-control mt-2" placeholder="ddm"  required autofocus>
 
         <input type="text" name="hdm" value="<?=$result1->hdm?>"  class="form-control mt-2" placeholder="hdm"   required>
+        <p class="mt-1">Categorie du match :</p>
+        <select name="categorie"  class="browser-default custom-select"required>
 
-
-        <input type="text" name="categorie" value="<?=$result1->categorie?>" class="form-control mt-2" placeholder="categorie"  required>
-
+          <option <?php if(  strtolower($result1->categorie) =='euro') echo 'selected';?>  value="Euro">Euro</option>
+          <option <?php if(  strtolower($result1->categorie) =='coupe du monde') echo 'selected';?> value="Coupe du monde">Coupe du monde</option>
+        </select>
         <input type="text" name="equipe1" value="<?=$result1->equipe1?>" class="form-control mt-2" placeholder="Nom de l'equipe 1"   required>
 
         <input type="text" name="equipe2" value="<?=$result1->equipe2?>" class="form-control mt-2" placeholder="Nom de l'equipe 2"   required>
@@ -160,12 +171,16 @@ else
 
 
         <input type="text" name="scoreequipe2" value="<?=$result1->scoreequipe2?>" class="form-control mt-2" placeholder="Nombre de but equipe 2"  required>
-
-        <input type="file" name="photoequipe1" value="<?=$result1->photoequipe1?>" class="form-control mt-2"  placeholder="photoequipe1"   required>
-
-        <input type="file" name="photoequipe2" value="<?=$result1->photoequipe2?>" class="form-control mt-2"  placeholder="photoequipe2"   required>
-
+        <div class="mt-2">
+            <a href="#" class="btn ajout-equipe1 btn-dark btn-md">modifier le logo de l'equipe 1</a>
+          <input type="file" disabled name="photoequipe1" value="<?=$result1->photoequipe1?>" class="form-control mt-2"  placeholder="photoequipe1"   >
+        </div>
+          <div class="mt-2">
+            <a href="#" class="btn ajout-equipe2 btn-dark btn-md">modifier le logo de l'equipe 2</a>
+             <input type="file" disabled name="photoequipe2" value="<?=$result1->photoequipe2?>" class="form-control mt-2"  placeholder="photoequipe2"  >
+          </div>
         <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Modifier</button>
+      <?php endif; ?>
       
     <?php endif;?>
     
@@ -201,7 +216,7 @@ else
           </div>
          </div>
       <?php endif; ?>
-    
+      <?php if(empty($erreurs) && !isset($success)): ?>
         <input type="text" name="nom" value="<?=$result1->nom?>" class="form-control mt-2" placeholder="Nom"  required autofocus>
 
         <input type="text" name="ddn" value="<?=$result1->ddn?>" class="form-control mt-2" placeholder="Date de naissance"   required>
@@ -210,15 +225,95 @@ else
         <input type="text" name="ldn" value="<?=$result1->ldn?>" class="form-control mt-2" placeholder="Lieu de naissance"  required>
 
         <input type="text" name="club" value="<?=$result1->club?>" class="form-control mt-2" placeholder="Club actuelle du joueur"   required>
+        <p class="mt-1">Poste du joueur :</p>
+        <select name="poste"  class="browser-default custom-select"required>
 
-        <input type="text" name="poste" value="<?=$result1->poste?>" class="form-control mt-2" placeholder="Poste du joueur"   required>
+          <option <?php if(  strtolower($result1->poste) =='defenseur') echo 'selected';?>  value="Defenseur">Defenseur</option>
+          <option <?php if(  strtolower($result1->poste) =='attaquant') echo 'selected';?> value="Attaquant">Attaquant</option>
+          <option <?php if(  strtolower($result1->poste) =='milieux de terrain') echo 'selected';?> value="Milieux de terrain">Milieux de terrain</option>
+          <option <?php if(  strtolower($result1->poste) =='entraineur') echo 'selected';?> value="Entraineur">Entraineur</option>
+        </select>
 
-        <input type="file" name="photo" value="<?=$result1->photo?>" class="form-control mt-2"  placeholder="Photo du joueur"   required>
-
+        <div class="mt-2">
+          <a href="#" class="btn ajout btn-dark btn-md">modifier la photo du joueur</a>
+          <input type="file" disabled name="photo" value="" class="form-control mt-2"  placeholder="Photo du joueur"  >
+        </div>
         <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Modifier</button>
 
-      
+        <?php endif;?>
     <?php endif;?>
   </form>
   <?php endif; ?>
+
   </div>
+  <script src="../src/js/jquery-3.4.1.js"></script> 
+  <script>
+  
+  $(function(){
+   $('.ajout').click(function(e){
+    e.preventDefault();
+    if($(this).text()=="modifier la photo du joueur")
+    {
+      $(this).next($('input:file')).removeAttr('disabled')
+      $(this).text("Annuler")
+    }
+      
+    else
+    {
+       $(this).next($('input:file')).attr('disabled','disabled')
+      $(this).text("modifier la photo du joueur")
+    }
+    
+     
+   })
+   $('.ajout-equipe1').click(function(e){
+    e.preventDefault();
+    if($(this).text()=="modifier le logo de l'equipe 1")
+    {
+      $(this).next($('input:file')).removeAttr('disabled')
+      $(this).text("Annuler")
+    }
+      
+    else
+    {
+       $(this).next($('input:file')).attr('disabled','disabled')
+      $(this).text("modifier le logo de l'equipe 1")
+    }
+    
+     
+   })
+   $('.ajout-equipe2').click(function(e){
+    e.preventDefault();
+    if($(this).text()=="modifier le logo de l'equipe 2")
+    {
+      $(this).next($('input:file')).removeAttr('disabled')
+      $(this).text("Annuler")
+    }
+      
+    else
+    {
+       $(this).next($('input:file')).attr('disabled','disabled')
+      $(this).text("modifier le logo de l'equipe 2")
+    }
+    
+     
+   })
+   $('.ajout-article').click(function(e){
+    e.preventDefault();
+    if($(this).text()=="modifier la photo de l'article")
+    {
+      $(this).next($('input:file')).removeAttr('disabled')
+      $(this).text("Annuler")
+    }
+      
+    else
+    {
+       $(this).next($('input:file')).attr('disabled','disabled')
+      $(this).text("modifier la photo de l'article")
+    }
+    
+     
+   })
+  })
+  </script>
+  </body>

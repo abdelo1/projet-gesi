@@ -23,15 +23,15 @@
        
       foreach($result as $value)
       {
-        if($value->poste=="Attaquant")
+        if(strtolower($value->poste) =="attaquant")
           array_push($attaquants,$value);
-        else if ($value->poste=="Milieux de terrain")
+        else if (strtolower($value->poste)=="milieux de terrain" || strtolower($value->poste)=="milieux")
           array_push($milieux,$value);
-        else if ($value->poste=="Defenseur")
+        else if (strtolower($value->poste)=="defenseur")
           array_push($defenseur,$value);
-        else if($value->poste=="Gardien")
+        else if(strtolower($value->poste)=="gardien")
           array_push($gardien,$value);
-        if($value->club=="null")
+        if(strtolower($value->poste)=="entraineur")
           array_push($coach,$value);
       }
    }

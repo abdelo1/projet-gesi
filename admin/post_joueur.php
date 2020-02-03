@@ -41,9 +41,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     <input type="text" name="ldn" class="form-control mt-2" placeholder="Lieu de naissance"  required>
   
     <input type="text" name="club" class="form-control mt-2" placeholder="Club actuelle du joueur"   required>
-
-    <input type="text" name="poste"  class="form-control mt-2" placeholder="Poste du joueur"   required>
-
+    <p class="mt-1">Poste du joueur :</p>
+    <select name="poste"  class="browser-default custom-select"required>
+  
+          <option   value="Defenseur">Defenseur</option>
+          <option   value="Attaquant">Attaquant</option>
+          <option   value="Milieux de terrain">Milieux de terrain</option>
+          <option  value="Entraineur">Entraineur</option>
+        </select>
+        <p class="mt-1">Photo du joueur :</p>
     <input type="file" name="photo"  class="form-control mt-2"  placeholder="Photo du joueur"   required>
    
     <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Inserer le joueur</button>

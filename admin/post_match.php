@@ -3,7 +3,7 @@ include ("../header.php");
 require("../functions/functions.php");
 if($_SERVER["REQUEST_METHOD"]=="POST")
   {
-  
+
       $erreurs=post_match();
       $success=null;    
       if(empty($erreurs))
@@ -33,12 +33,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     <?php endif; ?>
     <h1 class="h3 mb-3 font-weight-normal text-center">Insertion de match</h1>
 
-    <input type="text" name="ddm" class="form-control mt-2" placeholder="ddm"  required autofocus>
+    <input type="date" name="ddm" class="form-control mt-2" placeholder="ddm" required autofocus>
 
-    <input type="text" name="hdm"  class="form-control mt-2" placeholder="hdm"   required>
-    
-    
-    <input type="text" name="categorie" class="form-control mt-2" placeholder="categorie"  required>
+    <input type="text" name="hdm"  class="form-control mt-2" placeholder="hdm" required>
+    <p class="mt-1">Categorie du match :</p>
+
+    <select name="categorie" class="browser-default custom-select"required>
+  
+      <option value="Euro">Euro</option>
+      <option value="Coupe du monde">Coupe du monde</option>
+  </select>
   
     <input type="text" name="equipe1" class="form-control mt-2" placeholder="Nom de l'equipe 1"   required>
 
@@ -48,9 +52,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 
     <input type="text" name="scoreequipe2"  class="form-control mt-2" placeholder="Nombre de but equipe 2"  required>
-
+    <p class="mt-1">Logo de l'equipe 1:</p>
     <input type="file" name="photoequipe1"  class="form-control mt-2"  placeholder="photoequipe1"   required>
-
+    <p class="mt-1">Logo de l'equipe 2:</p>
     <input type="file" name="photoequipe2"  class="form-control mt-2"  placeholder="photoequipe2"   required>
    
     <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Inserer le match</button>

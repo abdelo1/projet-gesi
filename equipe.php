@@ -1,6 +1,7 @@
 <?php
   include ("header.php");
   require("functions/functions.php");
+  error_reporting(0);
   $pdo=init_bdd();
   $query=$pdo->query("SELECT * from  titulaire");
   $query1=$pdo->query("SELECT * from article ORDER BY id DESC LIMIT 2,3 ");

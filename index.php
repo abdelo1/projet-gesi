@@ -1,6 +1,7 @@
 <?php
   include ("header.php");
   require("functions/functions.php");
+  error_reporting(0);
   $today=new DateTime('');
   $today =$today->format('F d,Y');
   $today=new DateTime($today);

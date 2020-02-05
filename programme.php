@@ -1,6 +1,7 @@
 <?php
 include ("header.php");
 require ("functions/functions.php");
+error_reporting(0);
 $pdo=init_bdd();
 $result=$pdo->query("SELECT * from programme WHERE scoreequipe1='NULL'");
 $data=$result->fetchAll(PDO::FETCH_OBJ);

@@ -48,10 +48,9 @@
                 
                 <h4 style="" class="text-white text-center">Suivez nous :</h4> 
                 <div class="d-flex flex-row justify-content-center align-items-center">
-                    <a href="#" class="icon-footer icon-facebook-square"></a>
-                    <a href="#" class="icon-footer icon-instagram ml-4"></a>
-                    <a href="#" class="icon-footer icon-twitter ml-4"></a>
-                    <a href="#" class="icon-footer  icon-linkedin ml-4"></a>
+                    <a href="https://web.facebook.com/equipedefrance/" class="icon-footer icon-facebook-square"></a>
+                    <a href="https://www.instagram.com/equipedefrance/" class="icon-footer icon-instagram ml-4"></a>
+                    <a href="https://twitter.com/equipedefrance?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="icon-footer icon-twitter ml-4"></a>
                 </div>
            </div>
        </div>

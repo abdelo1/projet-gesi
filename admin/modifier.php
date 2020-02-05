@@ -113,7 +113,7 @@ else {
               <a href="#" class="btn ajout-article btn-dark btn-md">modifier la photo de l'article</a>
               <input type="file" disabled  name="file" id=""  class="form-control  mt-2">
             </div>
-            <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"><?=$result1->contenu?></textarea>
+            <textarea name="contenu" id="" cols="30" rows="10" placeholder="contenu" class="form-control  mt-2"><?= str_replace("<br />"," ",$result1->contenu) ?></textarea>
         
             <button class="btn btn-lg btn-dark btn-block mt-2" type="submit">Modifier</button>
           

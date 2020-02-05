@@ -1,6 +1,7 @@
 <?php
 include ("../header.php");
 require("../functions/functions.php");
+error_reporting(0);
 if($_SERVER["REQUEST_METHOD"]=="POST")
   {
   

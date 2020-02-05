@@ -2,13 +2,14 @@
 <?php
 
   $title=null;
+
   if( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php")
     $title="Accueil";
-  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/equipe.php")
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php/equipe.php")
     $title="Equipe de France" ;
-  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/contact.php")
+  elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php/contact.php")
     $title="Contactez nous" ;
-    elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/programme.php")
+    elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/index.php/programme.php")
     $title="Programme des matchs" ;
    elseif ( $_SERVER["SCRIPT_NAME"]=="/projet gesi/admin/post_articles.php")
     $title="Espace Admin|Poster article" ;
@@ -74,10 +75,10 @@
   <div class="super-head">
      <div class="head d-flex flex-row col-12 justify-content-between">
         <div class="icon-head-right head col-3  d-flex flex-row justify-content-center align-items-center">
-           <a href="#" class="icon-head icon-facebook-square"></a>
-           <a href="#" class="icon-head icon-instagram ml-4"></a>
-           <a href="#" class="icon-head icon-twitter ml-4"></a>
-           <a href="#" class="icon-head  icon-linkedin ml-4"></a>
+           <a href="https://web.facebook.com/equipedefrance/" target="_blank" class="icon-head icon-facebook-square"></a>
+           <a href="https://www.instagram.com/equipedefrance/" target="_blank" class="icon-head icon-instagram ml-4"></a>
+           <a href="https://twitter.com/equipedefrance?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"  class="icon-head icon-twitter ml-4"></a>
+          
         </div>
         <?php if($title=="Espace Admin|Poster article"||$title=="Espace Admin|Poster match"||$title=="Espace Admin|Lister tous"||$title=="Espace Admin|Inserer joueur"||$title=="Espace Admin|Modification"):?>
         

@@ -3,6 +3,7 @@
 
 
   $name = $email = $subject = $message= "";
+  error_reporting(0);
   #si la requête est methode post
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
           #traite les variable
@@ -22,15 +23,16 @@
            $header="Name :$name <$email>";
           #envoie de l'email
            $envoye= mail($to,$subject,$content,$header);
-            $code=http_response_code(200);
-           echo  $code;
+           if($envoye)
+             $success="Votre email a bien ete envoye nous vous contacterons dans les plus bref delai !";
+          else
+            $error="Votre email n'a pas ete envoye veuillez reessayer !";
                }
                else{
   
-           $code=http_response_code(400);
-           echo $code;
+                $error="Le formulaire a ete mal rempli veuillez reessayer !";
             
-           }
+           } 
           
          
        }
@@ -76,8 +78,22 @@
    
         <div class="row align-items-first">
           <div class="col-md-7">
+        
             <form action="contact.php" method="post" class="bg-white">
-              
+                <?php if(isset($success)): ?>
+                  <div class="row mt-2">
+                    <div class="col-sm-12">
+                        <div class="alert alert-primary"><p><?=$success?></p></div>
+                    </div>
+                  </div>
+              <?php endif; ?>
+              <?php if(isset($error)): ?>
+                  <div class="row mt-2">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger"><p><?=$error?></p></div>
+                    </div>
+                  </div>
+              <?php endif; ?>
               <div class="p-3 p-lg-5 ">
                 <div class="form-group row">
                   <div class="col-md-12">

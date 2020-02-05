@@ -1,21 +1,33 @@
 <?php
-include ("header.php");
+include_once ("header.php");
 require("functions/functions.php");
 
 if (!isset($_GET['id']))
-{ header("location:page404.php");
-   
+{ 
+   include('page404.php');
+   die();
 }
 else
 {
    extract($_GET);
+   if($id=="")
+   {
+    include('page404.php');
+    die();
+   }
+   else
+   {
+  
     $pdo=init_bdd();
     $result=$pdo->query("SELECT * from article WHERE id={$id}");
     $data=$result->fetch(PDO::FETCH_OBJ);
     if(!$data)
     {
-        $erreurarticle="Cet artice n'existe pas";
+      include('page404.php');
+      die();
     }
+   }
+   
 
 }
 

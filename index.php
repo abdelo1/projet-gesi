@@ -257,9 +257,7 @@ $coupeArray=[];
       
       </div>
   </section>
-  <div class="programme-div">
-    <img src="ressources/matchavenir.png" alt="">
-  </div>
+
   <div class="infojoueur-div d-flex flex-column flex-md-row  justify-content-md-between justify-content-center align-items-center">
     <div class="div-img ">
       <img src="" alt="">

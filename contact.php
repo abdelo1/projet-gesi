@@ -146,6 +146,29 @@
          
         </div>
        </div>
+       <div class="infojoueur-div d-flex flex-column flex-md-row  justify-content-md-between justify-content-center align-items-center">
+    <div class="div-img ">
+      <img src="" alt="">
+    </div>
+    <div class="div-info  d-flex flex-column justify-content-center align-items-center">
+     <div class="d-flex w-100 flex-row justify-content-around">
+       <span class="text-muted">Nom : </span><span class="ml-1 nom"> </span>
+     </div> 
+     <div class="d-flex w-100 flex-row justify-content-around">
+       <span style="margin-left:-20px" class="text-muted">Ne le : </span><span class="ml-1 ddn"> </span>
+     </div> 
+     <div class="d-flex w-100 flex-row justify-content-around">
+       <span  class="text-muted">A : </span><span class="ml-1 ldn"> </span>
+     </div> 
+     <div class="d-flex w-100 flex-row justify-content-around">
+       <span    class="text-muted">Club : </span><span class="ml-1 club"> </span>
+     </div> 
+     <div class="d-flex w-100 flex-row justify-content-around">
+       <span   class="text-muted">Poste: </span><span class="ml-1 poste"> </span>
+     </div> 
+    </div>
+  </div>
+  <div class="maskAll"> </div>
 <?php
   include ("footer.php");
 ?>
